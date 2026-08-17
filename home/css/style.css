@@ -4,8 +4,9 @@
   --border: rgba(255, 255, 255, 0.12);
   --text: #f5f7fa;
   --muted: #a8b3c7;
-  --accent: #e8a838;
-  --accent-soft: rgba(232, 168, 56, 0.18);
+  --accent: #4db8d4;
+  --accent-soft: rgba(77, 184, 212, 0.15);
+  --brown: #7a4e2d;
 }
 
 *,
@@ -29,7 +30,7 @@ body {
   inset: 0;
   background:
     radial-gradient(circle at 20% 20%, var(--accent-soft), transparent 35%),
-    radial-gradient(circle at 80% 0%, rgba(120, 160, 255, 0.12), transparent 30%),
+    radial-gradient(circle at 80% 0%, rgba(77, 184, 212, 0.1), transparent 30%),
     linear-gradient(180deg, #111822 0%, var(--bg) 100%);
   z-index: -1;
 }
@@ -46,17 +47,11 @@ body {
 }
 
 .logo {
-  font-size: 3rem;
-  margin-bottom: 0.75rem;
-}
-
-.eyebrow {
-  margin: 0 0 0.5rem;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  font-size: 0.75rem;
-  color: var(--accent);
-  font-weight: 700;
+  width: 120px;
+  height: auto;
+  margin-bottom: 1.25rem;
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 4px 24px rgba(77, 184, 212, 0.3));
 }
 
 h1 {
@@ -65,38 +60,40 @@ h1 {
   line-height: 1.05;
 }
 
+.brand-potato {
+  color: var(--brown);
+  font-weight: 800;
+}
+
+.brand-cloud {
+  color: var(--accent);
+  font-weight: 800;
+}
+
+.brand-tld {
+  color: var(--accent);
+  font-weight: 800;
+}
+
 .subtitle {
-  margin: 0 auto;
+  margin: 0 auto 1.25rem;
   max-width: 38rem;
   color: var(--muted);
   font-size: 1.125rem;
   line-height: 1.6;
 }
 
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1rem;
-}
-
-.card {
-  padding: 1.25rem 1.35rem;
+.coming-soon {
+  display: inline-block;
+  margin: 0 auto;
+  padding: 0.6rem 1.25rem;
   border: 1px solid var(--border);
-  border-radius: 1rem;
+  border-radius: 2rem;
   background: var(--surface);
-  backdrop-filter: blur(8px);
-}
-
-.card h2 {
-  margin: 0 0 0.5rem;
-  font-size: 1.05rem;
-}
-
-.card p {
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.55;
-  font-size: 0.95rem;
+  color: var(--accent);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
 }
 
 .footer {
