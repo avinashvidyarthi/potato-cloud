@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Potato Cloud — a lightweight home for your cloud-native projects."
+    />
+    <title>Potato Cloud</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="background"></div>
+
+    <main class="container">
+      <header class="hero">
+        <div class="logo" aria-hidden="true">🥔</div>
+        <p class="eyebrow">Welcome to</p>
+        <h1>Potato Cloud</h1>
+        <p class="subtitle">
+          A simple, fast static site served by nginx — ready for containers and
+          cloud deployment.
+        </p>
+      </header>
+
+      <section class="cards" aria-label="Highlights">
+        <article class="card">
+          <h2>Static by design</h2>
+          <p>
+            Pure HTML and CSS with no build step. Easy to edit, easy to ship.
+          </p>
+        </article>
+        <article class="card">
+          <h2>Container ready</h2>
+          <p>
+            Packaged with nginx in a minimal Docker image for consistent
+            deployments anywhere.
+          </p>
+        </article>
+        <article class="card">
+          <h2>CI/CD enabled</h2>
+          <p>
+            GitHub Actions builds and pushes to GCP Artifact Registry on every
+            merge to main.
+          </p>
+        </article>
+      </section>
+
+      <footer class="footer">
+        <p>Built with nginx · Deployed to GCP Artifact Registry</p>
+      </footer>
+    </main>
+  </body>
+</html>

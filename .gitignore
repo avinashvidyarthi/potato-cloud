@@ -1,0 +1,6 @@
+# GCP service account keys
+home/potato-cloud-home-deploy-key.json
+*-key.json
+
+# macOS
+.DS_Store
