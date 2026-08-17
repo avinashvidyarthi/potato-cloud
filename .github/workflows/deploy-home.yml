@@ -43,3 +43,20 @@ jobs:
             ./home
           docker push "${REGISTRY}/${IMAGE_NAME}:${IMAGE_TAG}"
           docker push "${REGISTRY}/${IMAGE_NAME}:latest"
+
+      - name: Notify Discord on push
+        if: always()
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          STATUS: ${{ job.status }}
+        run: |
+          if [ "$STATUS" = "success" ]; then
+            COLOR=3066993
+            MESSAGE="✅ New image pushed to Artifact Registry\n\`${IMAGE_NAME}:${IMAGE_TAG}\`"
+          else
+            COLOR=15158332
+            MESSAGE="❌ Image push failed for \`${IMAGE_NAME}\`"
+          fi
+          curl -s -X POST "$DISCORD_WEBHOOK" \
+            -H "Content-Type: application/json" \
+            -d "{\"embeds\":[{\"title\":\"Potato Cloud · Home Site\",\"description\":\"$MESSAGE\",\"color\":$COLOR}]}"

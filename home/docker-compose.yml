@@ -1,0 +1,24 @@
+services:
+  home:
+    image: asia-south1-docker.pkg.dev/avinashvidyarthi/potato-cloud/home:latest
+    restart: unless-stopped
+    ports:
+      - "52000:80"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1/"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+
+  watchtower:
+    image: containrrr/watchtower
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /root/.docker/config.json:/config.json
+    environment:
+      - WATCHTOWER_NOTIFICATIONS=shoutrrr
+      - WATCHTOWER_NOTIFICATION_URL=discord://${DISCORD_TOKEN}@${DISCORD_CHANNEL_ID}
+      - WATCHTOWER_NOTIFICATIONS_HOSTNAME=potato-cloud
+    command: --interval 60 --cleanup
